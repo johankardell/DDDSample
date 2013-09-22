@@ -1,25 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Models
 {
     public class Meal
     {
         public string Name { get; set; }
-        public List<Recipe> Recipes { get; set; }
+        public List<MealComponent> MealComponents { get; set; }
         public double Energy
         {
             get
             {
-                return Recipes.Sum(i => i.Energy);
+                return MealComponents.Sum(i => i.Energy);
             }
         }
 
         public Meal()
         {
-            Recipes = new List<Recipe>();
+            MealComponents = new List<MealComponent>();
         }
 
         public Meal(string name)
@@ -36,7 +34,7 @@ namespace Models
 
         public void Add(Ingredient ingredient, double amountInGrams)
         {
-            Recipes.Add(new Recipe(ingredient, amountInGrams));
+            MealComponents.Add(new MealComponent(ingredient, amountInGrams));
         }
     }
 }

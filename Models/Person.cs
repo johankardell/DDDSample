@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Models
 {
@@ -14,7 +12,8 @@ namespace Models
         {
             get
             {
-                return Meals.Sum(m => Math.Round(m.Energy,1));
+                // 1 decimal should be enough here
+                return Meals.Sum(m => Math.Round(m.Energy, 1));
             }
         }
 
