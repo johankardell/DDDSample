@@ -14,7 +14,15 @@ namespace Models
         {
             get
             {
-                return Meals.Sum(m => m.Energy);
+                return Meals.Sum(m => Math.Round(m.Energy,1));
+            }
+        }
+
+        public int NumberOfMealsEaten
+        {
+            get
+            {
+                return Meals.Count;
             }
         }
 
@@ -26,14 +34,6 @@ namespace Models
         public void Eat(Meal meal)
         {
             Meals.Add(meal);
-        }
-
-        public int NumberOfMealsEaten
-        {
-            get
-            {
-                return Meals.Count;
-            }
         }
     }
 }

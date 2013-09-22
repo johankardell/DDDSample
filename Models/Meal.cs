@@ -8,18 +8,18 @@ namespace Models
     public class Meal
     {
         public string Name { get; set; }
-        public List<Ingredient> Ingredients { get; set; }
+        public List<Recipe> Recipes { get; set; }
         public double Energy
         {
             get
             {
-                return Ingredients.Sum(i => i.Energy);
+                return Recipes.Sum(i => i.Energy);
             }
         }
 
         public Meal()
         {
-            Ingredients = new List<Ingredient>();
+            Recipes = new List<Recipe>();
         }
 
         public Meal(string name)
@@ -28,23 +28,15 @@ namespace Models
             Name = name;
         }
 
-        public Meal(string name, Ingredient ingredient, double amount)
+        public Meal(string name, Ingredient ingredient, double amountInGrams)
             : this(name)
         {
-            Add(ingredient, amount);
+            Add(ingredient, amountInGrams);
         }
 
-
-        public void Add(Ingredient ingredient, double amount)
+        public void Add(Ingredient ingredient, double amountInGrams)
         {
-            // TODO: Rewrite? Better way of copying object data without manually copying each property
-            var i = new Ingredient
-            {
-                AmountInGrams = amount,
-                MacroNutrients = ingredient.MacroNutrients,
-                Name = ingredient.Name
-            };
-            Ingredients.Add(i);
+            Recipes.Add(new Recipe(ingredient, amountInGrams));
         }
     }
 }

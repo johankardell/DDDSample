@@ -45,20 +45,22 @@ namespace Tests
         public void PersonDrinks100gMilk_60kcalReturned()
         {
             var person = new Person();
+            double expected = 60.2;
 
             person.Eat(glassOfMilk);
 
-            Assert.AreEqual(60.2, person.EnergyIntake);
+            Assert.AreEqual(expected, person.EnergyIntake);
         }
 
         [TestMethod]
         public void PersonDrinks250gMilk_150kcalReturned()
         {
             var person = new Person();
+            double expected = 150.5;
 
             person.Eat(largeGlassOfMilk);
 
-            Assert.AreEqual(150.5, person.EnergyIntake);
+            Assert.AreEqual(expected, person.EnergyIntake);
         }
     }
 }
