@@ -8,14 +8,14 @@ namespace Models
     public class Ingredient
     {
         public string Name { get; set; }
-        public double Amount { get; set; }
+        public double AmountInGrams { get; set; }
         public IEnumerable<MacroNutrient> MacroNutrients { get; set; }
 
         public double Energy 
         {
             get
             {
-                return MacroNutrients.Sum(m => Amount * m.Kcal);
+                return MacroNutrients.Sum(m => AmountInGrams * m.Kcal);
             }
         }
     }

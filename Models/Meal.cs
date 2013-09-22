@@ -31,16 +31,16 @@ namespace Models
         public Meal(string name, Ingredient ingredient, double amount)
             : this(name)
         {
-            AddAmountOf(ingredient, amount);
+            Add(ingredient, amount);
         }
 
 
-        public void AddAmountOf(Ingredient ingredient, double amount)
+        public void Add(Ingredient ingredient, double amount)
         {
             // TODO: Rewrite? Better way of copying object data without manually copying each property
             var i = new Ingredient
             {
-                Amount = amount,
+                AmountInGrams = amount,
                 MacroNutrients = ingredient.MacroNutrients,
                 Name = ingredient.Name
             };

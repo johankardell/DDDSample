@@ -38,7 +38,7 @@ namespace Tests
 
             person.Eat(pie);
 
-            Assert.AreEqual(1, person.Meals.Count);
+            Assert.AreEqual(1, person.NumberOfMealsEaten);
         }
 
         [TestMethod]

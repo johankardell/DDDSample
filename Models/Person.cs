@@ -8,7 +8,7 @@ namespace Models
 {
     public class Person
     {
-        public List<Meal> Meals;
+        private List<Meal> Meals;
 
         public double EnergyIntake
         {
@@ -26,6 +26,14 @@ namespace Models
         public void Eat(Meal meal)
         {
             Meals.Add(meal);
+        }
+
+        public int NumberOfMealsEaten
+        {
+            get
+            {
+                return Meals.Count;
+            }
         }
     }
 }
